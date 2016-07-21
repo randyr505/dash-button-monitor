@@ -11,9 +11,13 @@ Original code I modified:
 
 I added code to loop through multiple macs and print to stdout. Additionally to omit certain macs
 
-# Run dash_monitor to discover mac addresses
+#### Run dash_monitor to discover mac addresses
+``` sh
 sudo python dash_monitor.py
+```
 
-# Start dash_monitor as a service
+#### Start dash_monitor as a service
+``` sh
 sudo cp dash_monitor.startup /etc/init.d/dash_monitor
 sudo update-rc.d dash_monitor defaults
+```
