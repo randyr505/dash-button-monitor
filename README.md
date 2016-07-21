@@ -1,7 +1,7 @@
 # monitor-dash-button
 Displays mac addresses of Amazon's [dash buttons](http://amzn.to/29WG6lI). Runs on a raspberry pi
 
-These scripts can be used to "hack" dash buttons. Although there really isn't any hacking of the buttons, these do provide a way to interrupt the connect to Amazon and make the dash buttons do other things, in this example, print messages to the screen and eventually will run scripts based on the button pressed.
+These scripts can be used to "hack" [dash buttons](http://amzn.to/29WG6lI). Although there really isn't any hacking of the buttons, these do provide a way to interrupt the connect to Amazon and make the [dash buttons](http://amzn.to/29WG6lI) do other things, in this example, print messages to the screen and eventually will run scripts based on the button pressed.
 
 I am not sure who all contributed to the arp parsing code since it was posted on medium via anonymous but I'll provide the link here. 
 
