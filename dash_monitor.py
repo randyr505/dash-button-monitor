@@ -1,6 +1,7 @@
 import socket
 import struct
 import binascii
+import os
 rawSocket = socket.socket(socket.AF_PACKET, socket.SOCK_RAW, socket.htons(0x0003))
 while True:
   packet = rawSocket.recvfrom(2048)
@@ -21,7 +22,9 @@ while True:
 
   for (dash_mac,dash_name) in dashes:
     if source_mac == dash_mac:
-      print "~~~ " + dash_name + " button pressed, IP = " + dest_ip + " and mac = " + source_mac
+      #print "~~~ " + dash_name + " button pressed, IP = " + dest_ip + " and mac = " + source_mac
+      bashcmd = "./scripts/process_button.sh %s %s %s" % (dash_name dest_ip source_mac)
+      os.system(bashcmd)
       matched_source = True
       
   if matched_source == False:
