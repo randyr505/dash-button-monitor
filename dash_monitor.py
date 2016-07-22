@@ -23,7 +23,7 @@ while True:
   for (dash_mac,dash_name) in dashes:
     if source_mac == dash_mac:
       #print "~~~ " + dash_name + " button pressed, IP = " + dest_ip + " and mac = " + source_mac
-      bashcmd = "./scripts/process_button.sh %s %s %s" % (dash_name dest_ip source_mac)
+      bashcmd = "./scripts/process_button.sh %s %s %s" % (dash_name, dest_ip, source_mac)
       os.system(bashcmd)
       matched_source = True
       
