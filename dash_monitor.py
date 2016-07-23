@@ -2,7 +2,16 @@ import socket
 import struct
 import binascii
 import os
+import ConfigParser
+from itertools import chain
+
+dir_name = os.path.dirname(os.path.realpath(__file__))
+conf = dir_name + '/dash_monitor.cf'
+process_button = dir_name + '/scripts/process_button.sh'
+
+config = ConfigParser.ConfigParser()
 rawSocket = socket.socket(socket.AF_PACKET, socket.SOCK_RAW, socket.htons(0x0003))
+
 while True:
   packet = rawSocket.recvfrom(2048)
   ethernet_header = packet[0][0:14]
@@ -17,16 +26,15 @@ while True:
   source_mac = binascii.hexlify(arp_detailed[5])
   dest_ip = socket.inet_ntoa(arp_detailed[8])
 
-  exclude_macs = ('801f01000000', '801f02000000')
-  dashes = [["74c2460000", "Milk"], ["74c246000000", "Stacys"], ["00bb3a000000", "Downy"], ["44650d000000", "Red Bull"], ["747548000000", "Mucinex"], ["74c246000000", "Gatorade"], ["f0272d000000", "Energizer"]]
+  config.read(conf)
+  exclude_macs = config.items('exclude_macs')
+  dashes = config.items('dashes')
 
-  for (dash_mac,dash_name) in dashes:
+  for (dash_name,dash_mac) in dashes:
     if source_mac == dash_mac:
-      #print "~~~ " + dash_name + " button pressed, IP = " + dest_ip + " and mac = " + source_mac
-      bashcmd = "./scripts/process_button.sh %s %s %s" % (dash_name, dest_ip, source_mac)
-      os.system(bashcmd)
+      os.system(process_button + " %s %s %s" % (dash_name, dest_ip, source_mac))
       matched_source = True
       
   if matched_source == False:
-    if source_mac not in exclude_macs:
+    if source_mac not in chain(*exclude_macs):
       print "Other arp request, IP = " + dest_ip + " and mac = " + source_mac
