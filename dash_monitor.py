@@ -10,6 +10,7 @@ conf = dir_name + '/dash_monitor.cf'
 process_button = dir_name + '/scripts/process_button.sh'
 
 config = ConfigParser.ConfigParser()
+
 rawSocket = socket.socket(socket.AF_PACKET, socket.SOCK_RAW, socket.htons(0x0003))
 
 while True:

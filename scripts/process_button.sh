@@ -10,3 +10,4 @@ case $name in
   milk) echo "~~~ $name button pressed, executing ./$name.sh"; $dir/$name.sh ;;
      *) echo "~~~ $name button pressed, IP = $dest_ip and mac = $mac" ;;
 esac
+
