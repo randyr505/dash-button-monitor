@@ -1,0 +1,18 @@
+# dash_monitor.cf
+
+[dashes]
+Milk=74c246000000
+Stacys=74c24000000
+Downy=00bb3a000000
+Finish=44650000000
+RedBull=44650d000000
+Mentos=44650d000000
+Mucinex=747548000000
+IceBreakers=44650000000
+Gatorade=74c246000000
+Energizer=f0272d000000
+Puffs=44650d000000
+
+[exclude_macs]
+exclude_mac1=6cb0ce000000
+exclude_mac2=801f02000000
