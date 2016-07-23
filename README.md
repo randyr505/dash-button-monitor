@@ -31,3 +31,9 @@ sudo python dash_monitor.py
 sudo cp dash_monitor.startup /etc/init.d/dash_monitor
 sudo update-rc.d dash_monitor defaults
 ```
+
+#### Update about credit
+I noticed that if I don't select a product but I push the button a credit is applied to my account for when I select a subscribe and save item. It also seems as if it may do partial credits. i.e. I received a dash promotion credit for around $1 which I think was left over from an item that was a little over $3. YMMV
+
+#### Deactivate button
+After you have received your credit or you are just sure you are done with having the button connected to Amazon you can select a product when prompted, then go back and manage the button. When you select the button you should have the option to deactivate it.
