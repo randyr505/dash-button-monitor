@@ -13,7 +13,7 @@ dir=/home/pi/dash-button-monitor
 
 case "$1" in
   stop|reload|restart|force-reload|status) ;;
-  start) $dir/dash_monitor.py ;;
+  start) python $dir/dash_monitor.py & ;;
       *) echo "Usage: $0 {start|stop|restart|force-reload|status}" >&2
          exit 1 ;;
 esac
