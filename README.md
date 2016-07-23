@@ -37,3 +37,4 @@ I noticed that if I don't select a product but I push the button a credit is app
 
 #### Deactivate button
 After you have received your credit or you are just sure you are done with having the button connected to Amazon you can select a product when prompted, then go back and manage the button. When you select the button you should have the option to deactivate it.
+WARNING: If you deactivate your button it will no longer be connected to wifi after the next push. You will have to setup the button again to use it.
