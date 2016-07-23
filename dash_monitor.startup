@@ -9,11 +9,11 @@
 # Description:       dash_monitor 
 ### END INIT INFO
 
-scripts=/home/pi/scripts
+dir=/home/pi/dash-button-monitor
 
 case "$1" in
   stop|reload|restart|force-reload|status) ;;
-  start) $scripts/dash_monitor.py ;;
+  start) $dir/dash_monitor.py ;;
       *) echo "Usage: $0 {start|stop|restart|force-reload|status}" >&2
          exit 1 ;;
 esac

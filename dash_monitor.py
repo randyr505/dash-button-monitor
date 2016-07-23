@@ -10,8 +10,11 @@ conf = dir_name + '/dash_monitor.cf'
 process_button = dir_name + '/scripts/process_button.sh'
 
 config = ConfigParser.ConfigParser()
-
+config.read(conf)
 rawSocket = socket.socket(socket.AF_PACKET, socket.SOCK_RAW, socket.htons(0x0003))
+
+dashes = config.items('dashes')
+exclude_macs = config.items('exclude_macs')
 
 while True:
   packet = rawSocket.recvfrom(2048)
@@ -26,10 +29,6 @@ while True:
   matched_source = False
   source_mac = binascii.hexlify(arp_detailed[5])
   dest_ip = socket.inet_ntoa(arp_detailed[8])
-
-  config.read(conf)
-  exclude_macs = config.items('exclude_macs')
-  dashes = config.items('dashes')
 
   for (dash_name,dash_mac) in dashes:
     if source_mac == dash_mac:
